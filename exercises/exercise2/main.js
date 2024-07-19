@@ -81,3 +81,10 @@ if (answer == "no") {
 } else {
     console.log("invalid answer... don't stress me :(")
 }
+
+
+// console.log("                                  .-.");
+// console.log("     (___________________________()  \`-,");
+// console.log("     (   ______________________   /''\"`");
+// console.log("     //\\\\                      //\\\\");
+// console.log("jgs  \"\" \"\"                     \"\" \"\"");
