@@ -1,21 +1,24 @@
 let readlineSync = require("readline-sync")
 
-// console.log("Beachwalk Hotel")
-// console.log("----WELCOME----")
 
-// console.log("What's your name? ")
-// let name = readlineSync.question("> ");
-// console.log("Welcome to our hotel Mr.", name, ".");
+console.log("----WELCOME----")
+console.log("|__|__|__|__|__|__|__|__|")
+console.log("|__|__Beachwalk Hotel__|__|")
+console.log("|__|__|__|__|__|__|__|__|")
 
-// console.log("Let me just inform you that we have different prices per tipology and discounts for longer stays")
-// console.log("Normal room: 90€")
-// console.log("Deluxe room: 120€")
-// console.log("Deluxe suite: 150€")
-// console.log("About the discounts:")
-// console.log("5 nights or more, 10%")
-// console.log("10 nights or more, 15%")
-// console.log("15 nights or more, 20%")
-// console.log("Also, the breakfast costs 10€ per person.")
+console.log("What's your name? ")
+let name = readlineSync.question("> ");
+console.log("Welcome to our hotel Mr.", name, ".");
+
+console.log("Let me just inform you that we have different prices per tipology and discounts for longer stays")
+console.log("Normal room: 90€ (+10€ if 2 people)")
+console.log("Deluxe room: 120€ (+10€ if 2 people)")
+console.log("Deluxe suite: 150€ (+10€ if 2 people)")
+console.log("About the discounts:")
+console.log("5 nights or more, 10%")
+console.log("10 nights or more, 15%")
+console.log("15 nights or more, 20%")
+console.log("Also, the breakfast costs 10€ per person.")
 
 console.log("How many nights do you'd like to stay with us?");
 let nights = readlineSync.question("> ");
