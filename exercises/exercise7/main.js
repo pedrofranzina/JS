@@ -2,9 +2,11 @@ let readlineSync = require("readline-sync")
 
 
 console.log("----WELCOME----")
-console.log("|__|__|__|__|__|__|__|__|")
-console.log("|__|__Beachwalk Hotel__|__|")
-console.log("|__|__|__|__|__|__|__|__|")
+console.log("_|__|__|__|__|__|__|__|__|_")
+console.log("|__|_                  _|__")
+console.log("|__|_ BEACHKWALK HOTEL _|__|")
+console.log("|__|_                  _|__")
+console.log("_|__|__|__|__|__|__|__|__|_")
 
 console.log("What's your name? ")
 let name = readlineSync.question("> ");
