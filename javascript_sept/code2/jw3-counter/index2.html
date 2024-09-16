@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #textBox {
+            min-height: 50px;
+            background-color: bisque;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="textBox">0</div>
+    <button id="buttonMinus10">- 10</button>
+    <button id="buttonMinus1">- 1</button>
+    <button id="buttonPlus1">+ 1</button>
+    <button id="buttonPlus10">+ 10</button>
+
+    <script>
+        let counter = 0;
+        function buttonClickedplus1() {
+            const textBox = document.getElementById("textBox");
+            counter += 1;
+            textBox.textContent = counter;
+            if (counter < 0) {
+                textBox.style.color = "red";
+            } else if (counter < 10) {
+                textBox.style.color = "black";
+            } else if (counter < 100) {
+                textBox.style.color = "blue";
+            } else {
+                textBox.style.color = "green";
+            }
+        }
+        function buttonClickedminus1() {
+            const textBox = document.getElementById("textBox");
+            counter -= 1;
+            textBox.textContent = counter;
+            if (counter < 0) {
+                textBox.style.color = "red";
+            } else if (counter < 10) {
+                textBox.style.color = "black";
+            } else if (counter < 100) {
+                textBox.style.color = "blue";
+            } else {
+                textBox.style.color = "green";
+            }
+        }
+
+        function buttonClickedPlus10() {
+            const textBox = document.getElementById("textBox");
+            counter += 10;
+            textBox.textContent = counter;
+            if (counter < 0) {
+                textBox.style.color = "red";
+            } else if (counter < 10) {
+                textBox.style.color = "black";
+            } else if (counter < 100) {
+                textBox.style.color = "blue";
+            } else {
+                textBox.style.color = "green";
+            }
+        }
+
+        function buttonClickedminus10() {
+            const textBox = document.getElementById("textBox");
+            counter -= 10;
+            textBox.textContent = counter;
+            if (counter < 0) {
+                textBox.style.color = "red";
+            } else if (counter < 10) {
+                textBox.style.color = "black";
+            } else if (counter < 100) {
+                textBox.style.color = "blue";
+            } else {
+                textBox.style.color = "green";
+            }
+        }
+
+
+        const buttonPlus1 = document.getElementById("buttonPlus1");
+        buttonPlus1.addEventListener("click", buttonClickedplus1);
+
+        const buttonMinus1 = document.getElementById("buttonMinus1");
+        buttonMinus1.addEventListener("click", buttonClickedminus1);
+
+        const buttonPlus10 = document.getElementById("buttonPlus10");
+        buttonPlus10.addEventListener("click", buttonClickedPlus10)
+
+        const buttonMinus10 = document.getElementById("buttonMinus10");
+        buttonMinus10.addEventListener("click", buttonClickedminus10)
+
+
+    </script>
+
+</body>
+
+</html>

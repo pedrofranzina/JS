@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="textBox">0</div>
+    <button id="button1">BUTTON !</button>
+
+    <script>
+        function buttonClicked() {
+            const textBox = document.getElementById("textBox");
+            counter += 1;
+            textBox.textContent = counter;
+            if (counter > 10) {
+                textBox.style.color = "red";
+            }
+        }
+
+        let counter = 0;
+
+        const button1 = document.getElementById("button1");
+        button1.addEventListener("click", buttonClicked)
+    </script>
+</body>
+
+</html>
