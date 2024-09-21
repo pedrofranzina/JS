@@ -31,3 +31,7 @@ button {
 button:disabled {
     background-color: rgb(100, 97, 97);
 }
+
+img {
+    border-radius: 20px;
+}
