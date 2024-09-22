@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="password" placeholder="password" id="samplePassword">
+    <button id="sampleButton">OK</button>
+    <p id="greetingBox"></p>
+
+
+    <script>
+        const samplePassword = document.getElementById("samplePassword");
+        const sampleButton = document.getElementById("sampleButton");
+        const greetingBox = document.getElementById("greetingBox");
+
+
+        sampleButton.addEventListener("click", function () {
+
+            const passwordValue = samplePassword.value;
+            const specialCharRegex = /[^a-zA-Z0-9]/g;
+            const specialCharMatches = passwordValue.match(specialCharRegex);
+            const specialCharCount = specialCharMatches ? specialCharMatches.length : 0;
+
+            if (passwordValue.length >= 5 && passwordValue.length <= 16) {
+                if (specialCharCount === 0) {
+                    greetingBox.textContent = ("[WEAK] password saved!");
+                    greetingBox.style.color = ("red");
+                } else if (specialCharCount === 1) {
+                    greetingBox.textContent = ("[MEDIUM] password saved!");
+                    greetingBox.style.color = ("orange");
+                } else if (specialCharCount >= 4) {
+                    greetingBox.textContent = ("[STRONG] password saved!");
+                    greetingBox.style.color = ("green");
+                }
+            } else {
+                greetingBox.textContent = ("Password must have between 5 and 16 characters");
+                greetingBox.style.color = ("red");
+                samplePassword.value = ("");
+            }
+
+        })
+    </script>
+</body>
+
+</html>
