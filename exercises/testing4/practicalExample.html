@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <form id="myForm">
+        <input id="nameInput" placeholder="Name">
+        <button id="goButton">GO!</button>
+    </form>
+
+    <p id="messageText"></p>
+
+    <script>
+        const myForm = document.getElementById("myForm");
+
+        const nameInput = document.getElementById("nameInput");
+        const goButton = document.getElementById("goButton");
+        const messageText = document.getElementById("messageText");
+
+        myForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+            messageText.textContent = "Hello " + nameInput.value;
+        })
+    </script>
+</body>
+
+
+</html>

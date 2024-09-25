@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #redBox {
+            width: 300px;
+            height: 300px;
+            background-color: red;
+        }
+
+        #blueBox {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="redBox">
+        <div id="blueBox"></div>
+    </div>
+
+
+    <script>
+        const redBox = document.getElementById("redBox");
+        const blueBox = document.getElementById("blueBox");
+
+        redBox.addEventListener("click", function (event) {
+            alert("RED!");
+            console.log(event.target);
+        })
+
+        blueBox.addEventListener("click", function (event) {
+            event("BLUE!");
+            console.log(event.target);
+        })
+    </script>
+</body>
+
+</html>
