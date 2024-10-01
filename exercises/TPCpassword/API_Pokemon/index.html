@@ -5,20 +5,97 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        body {
+            background-color: #FFE69C;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        #pokemonCard {
+            background-color: #8BC5CD;
+            width: auto;
+            border: 3px solid black;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-top: 60px;
+            border-radius: 20px;
+        }
+
+        @keyframes pokemon {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        #pokemonCard:hover {
+            animation: pokemon 1s;
+            ;
+        }
+
+        #pokemonChosenName {
+            font-size: 1.5em;
+            font-weight: 900;
+        }
+
+        #pokemonChosenImage {
+            background-color: #5A9CA4;
+            border-radius: 20px;
+            margin: 0px 20px;
+            width: 500px;
+        }
+
+        #pokemonChosenPower {
+            padding: 0px;
+        }
+
+
+        p {
+            display: flex;
+            justify-content: center;
+            margin: 10px 0px;
+            font-size: 1em;
+            font-weight: 600;
+            text-transform: uppercase;
+
+        }
+
+        ul {
+            justify-content: center;
+            list-style: none;
+            display: flex;
+            flex-direction: row;
+            gap: 8px;
+        }
+    </style>
 </head>
 
 <body>
 
-    <div #pokemonCard>
-        <p id="pokemonChosenName"></p>
-        <img id="pokemonChosenImage" src="" alt="">
-        <p id="pokemonChosenVersion"></p>
-        <p id="pokemonChosenImage"></p>
-        <p id="pokemonChosenType"></p>
-        <p id="pokemonChosenIndex"></p>
-        <p id="pokemonChosenHeight"></p>
-        <ul id="pokemonChosenPower""></ul>
+    <div data-aos="flip-left">
+
+        <div id=pokemonCard>
+            <p id="pokemonChosenName"></p>
+            <img id="pokemonChosenImage" src="" alt="">
+            <p id="pokemonChosenVersion"></p>
+            <p id="pokemonChosenImage"></p>
+            <p id="pokemonChosenType"></p>
+            <p id="pokemonChosenIndex"></p>
+            <p id="pokemonChosenHeight"></p>
+            <ul id="pokemonChosenPower""></ul>
     </div>
+</div>
     <script>
 
         const pokemonCard = document.querySelector(" #pokemonCard"); const
@@ -30,19 +107,20 @@
                                 pokemonChosenHeight = document.querySelector("#pokemonChosenHeight"); const
                                     pokemonChosenPower = document.querySelector("#pokemonChosenPower");
         fetch("https://pokeapi.co/api/v2/pokemon/squirtle").then(function (response) {
-            response.json().then(function
-                (body) {
-                    pokemonChosenVersion.innerHTML = `Version: ${body.game_indices[4].version.name}`;
+            response.json().then(function (body) {
+                pokemonChosenVersion.innerHTML = `Version:
+                ${body.game_indices[4].version.name}`;
                 pokemonChosenImage.src = body.sprites.other['official-artwork'].front_default;
                 pokemonChosenName.innerHTML = `<p>${body.name}</p>`;
-                pokemonChosenHeight.innerHTML = `Height: ${body.height} kg`;
+                pokemonChosenHeight.innerHTML = `Weight : ${body.weight / 10} kg`;
+                // linha de cima fiz /10 porque nao faz sentido os 90.
                 pokemonChosenIndex.innerHTML = `Index: ${body.game_indices[4].game_index}`;
                 pokemonChosenType.innerHTML = `Type: ${body.types[0].type.name}`;
-                pokemonChosenPower.innerHTML = `Attacks:`
 
-                for (i = 0; i < body.moves.length; i++) {
+
+                for (i = 0; i < 6; i++) {
                     pokemonChosenPower.innerHTML += `<li>${body.moves[i].move.name}
-                </li>`;
+                    </li>`;
                 }
             });
         });
@@ -56,7 +134,10 @@
         // mostrar a imagem official, o nome, o peso, e outros dados ao vosso gosto
 
         // 3 - tornar minimamente interessante com algum CSS
+
     </script>
+
+
 </body>
 
 </html>
