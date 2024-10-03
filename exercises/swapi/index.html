@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Star Wars 🎬</h1>
+    <div id="cardContainer">
+
+    </div>
+
+    <script>
+        function toRoman(num) {
+            const romanNumerals = [
+                { value: 1000, symbol: "M" },
+                { value: 900, symbol: "CM" },
+                { value: 500, symbol: "D" },
+                { value: 400, symbol: "CD" },
+                { value: 100, symbol: "C" },
+                { value: 90, symbol: "XC" },
+                { value: 50, symbol: "L" },
+                { value: 40, symbol: "XL" },
+                { value: 10, symbol: "X" },
+                { value: 9, symbol: "IX" },
+                { value: 5, symbol: "V" },
+                { value: 4, symbol: "IV" },
+                { value: 1, symbol: "I" }
+            ];
+
+            let result = ``;
+            for (let i = 0; i < romanNumerals.length; i++) {
+                while (num >= romanNumerals[i].value) {
+                    result += romanNumerals[i].symbol;
+                    num -= romanNumerals[i].value;
+                }
+            }
+            return result;
+        }
+
+        function createFilmCards(films) {
+            for (let i = 0; i < films.length; i++) {
+                const title = films[i].title;
+                const openingCrawl = films[i].opening_crawl.replace(/\r\n/g, '<br>');
+                const episodeNumber = films[i].episode_id;
+                const episodeRoman = toRoman(episodeNumber);
+
+                console.log(title);
+                console.log(openingCrawl);
+                console.log(episodeRoman);
+
+                cardContainer.innerHTML += `
+                    <div>
+                        <h2>Star Wars: Episode ${episodeRoman} - ${title}</h2>
+                        <p>${openingCrawl}</p>
+                    </div> 
+                `;
+            }
+        }
+
+        const cardContainer = document.querySelector("#cardContainer");
+
+        console.log("loading...");
+        const url = "https://swapi.dev/api/films";
+        fetch(url)
+            .then(function (response) {
+                return response.json();
+            }).then(function (result) {
+                createFilmCards(result.results);
+            }).catch(function (error) {
+                alert("Error!")
+            });
+
+    </script>
+</body>
+
+</html>

@@ -83,58 +83,45 @@
 
 <body>
 
-    <div data-aos="flip-left">
-
-        <div id=pokemonCard>
-            <p id="pokemonChosenName"></p>
-            <img id="pokemonChosenImage" src="" alt="">
-            <p id="pokemonChosenVersion"></p>
-            <p id="pokemonChosenImage"></p>
-            <p id="pokemonChosenType"></p>
-            <p id="pokemonChosenIndex"></p>
-            <p id="pokemonChosenHeight"></p>
-            <ul id="pokemonChosenPower""></ul>
+    <div id=pokemonCard>
+        <p id="pokemonChosenName"></p>
+        <img id="pokemonChosenImage" src="" alt="">
+        <p id="pokemonChosenVersion"></p>
+        <p id="pokemonChosenImage"></p>
+        <p id="pokemonChosenType"></p>
+        <p id="pokemonChosenIndex"></p>
+        <p id="pokemonChosenHeight"></p>
+        <ul id="pokemonChosenPower"></ul>
     </div>
-</div>
+
     <script>
 
-        const pokemonCard = document.querySelector(" #pokemonCard"); const
-            pokemonChosenVersion = document.querySelector("#pokemonChosenVersion"); const
-                pokemonChosenName = document.querySelector("#pokemonChosenName"); const
-                    pokemonChosenImage = document.querySelector("#pokemonChosenImage"); const
-                        pokemonChosenType = document.querySelector("#pokemonChosenType"); const
-                            pokemonChosenIndex = document.querySelector("#pokemonChosenIndex"); const
-                                pokemonChosenHeight = document.querySelector("#pokemonChosenHeight"); const
-                                    pokemonChosenPower = document.querySelector("#pokemonChosenPower");
+        const pokemonCard = document.querySelector(" #pokemonCard");
+        const pokemonChosenVersion = document.querySelector("#pokemonChosenVersion");
+        const pokemonChosenName = document.querySelector("#pokemonChosenName");
+        const pokemonChosenImage = document.querySelector("#pokemonChosenImage");
+        const pokemonChosenType = document.querySelector("#pokemonChosenType");
+        const pokemonChosenIndex = document.querySelector("#pokemonChosenIndex");
+        const pokemonChosenHeight = document.querySelector("#pokemonChosenHeight");
+        const pokemonChosenPower = document.querySelector("#pokemonChosenPower");
+
         fetch("https://pokeapi.co/api/v2/pokemon/squirtle").then(function (response) {
-            response.json().then(function (body) {
-                pokemonChosenVersion.innerHTML = `Version:
-                ${body.game_indices[4].version.name}`;
+            response.json().then(function
+                (body) {
+                pokemonChosenVersion.innerHTML = `Version: ${body.game_indices[4].version.name}`;
                 pokemonChosenImage.src = body.sprites.other['official-artwork'].front_default;
                 pokemonChosenName.innerHTML = `<p>${body.name}</p>`;
                 pokemonChosenHeight.innerHTML = `Weight : ${body.weight / 10} kg`;
-                // linha de cima fiz /10 porque nao faz sentido os 90.
                 pokemonChosenIndex.innerHTML = `Index: ${body.game_indices[4].game_index}`;
                 pokemonChosenType.innerHTML = `Type: ${body.types[0].type.name}`;
 
 
                 for (i = 0; i < 6; i++) {
                     pokemonChosenPower.innerHTML += `<li>${body.moves[i].move.name}
-                    </li>`;
+                </li>`;
                 }
             });
         });
-
-
-        // TPC...
-        // 1 - Estudar a resposta da API dos Pokemons especificamente:
-        // https://pokeapi.co/api/v2/pokemon/pikachu
-
-        // 2 - usar fetch para ler os dados deste URL
-        // mostrar a imagem official, o nome, o peso, e outros dados ao vosso gosto
-
-        // 3 - tornar minimamente interessante com algum CSS
-
     </script>
 
 
